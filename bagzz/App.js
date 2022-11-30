@@ -8,9 +8,9 @@ import {
   Text,
   View,
 } from 'react-native';
+
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {Button, Header, Input, Overlay} from 'react-native-elements';
-import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import {NavigationContainer} from '@react-navigation/native';
 import Products from './screens/Products';
@@ -22,6 +22,7 @@ const Stack = createStackNavigator();
 
 const styles = StyleSheet.create({
   safeArea: {
+    flex: 1,
     paddingTop: 5,
     paddingBottom: Platform.OS === 'ios' ? 0 : 20,
   },
@@ -32,11 +33,12 @@ const App = () => {
     <NavigationContainer>
       <SafeAreaView style={styles.safeArea}>
         <Stack.Navigator
-          screenOptions={({navigation}) => ({
+          screenOptions={() => ({
             animation: 'slide_from_right',
             headerShadowVisible: true,
             contentStyle: {
-              backgroundColor: '#ffffff',
+              flex: 1,
+              backgroundColor: 'blue',
               paddingHorizontal: 20,
               paddingTop: 15,
             },
@@ -54,13 +56,11 @@ const App = () => {
             headerTitleAlign: 'center',
             headerBackTitleVisible: false,
             headerTintColor: '#000000',
-            headerRight: () => <Text>todo paveiksliukas</Text>,
-            headerLeft: () => <Icon name="menu" size={21} color="black" />,
           })}>
           <Stack.Screen
             name="Products"
             options={() => ({
-              title: 'Alio?',
+              title: 'Bagzz',
             })}
             component={Products}
           />
