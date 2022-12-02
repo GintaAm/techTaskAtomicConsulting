@@ -14,9 +14,11 @@ import {Button, Header, Input, Overlay} from 'react-native-elements';
 
 import {NavigationContainer} from '@react-navigation/native';
 import Products from './screens/Products';
+import Product from './screens/Product';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
 
 import {createStackNavigator} from '@react-navigation/stack';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 const Stack = createStackNavigator();
 
@@ -63,6 +65,13 @@ const App = () => {
               title: 'Bagzz',
             })}
             component={Products}
+          />
+          <Stack.Screen
+            name="Product"
+            options={() => ({
+              title: 'Bag',
+            })}
+            component={Product}
           />
         </Stack.Navigator>
       </SafeAreaView>
