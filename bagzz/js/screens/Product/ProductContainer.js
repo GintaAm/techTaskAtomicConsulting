@@ -6,8 +6,9 @@ import React, {
   useLayoutEffect,
 } from 'react';
 import ProductComponent from './ProductComponent';
-import {getProduct} from '../../apis/api';
+
 import {Alert} from 'react-native';
+import {getProduct} from '../../../apis/api';
 
 export default () => {
   const [loading, setLoading] = useState(false);

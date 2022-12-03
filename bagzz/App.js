@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, createContext, useState, useRef} from 'react';
 import {
   SafeAreaView,
   Platform,
@@ -7,20 +7,21 @@ import {
   StyleSheet,
   Text,
   View,
+  Button,
 } from 'react-native';
-
+import CartInfo from './js/components/CartInfo';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {Button, Header, Input, Overlay} from 'react-native-elements';
 
 import {NavigationContainer} from '@react-navigation/native';
-import Products from './screens/Products';
-import Product from './screens/Product';
+import Products from './js/screens/Products';
+import Product from './js/screens/Product';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
 
 import {createStackNavigator} from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 const Stack = createStackNavigator();
+export const CartContext = createContext();
 
 const styles = StyleSheet.create({
   safeArea: {
@@ -31,6 +32,12 @@ const styles = StyleSheet.create({
 });
 
 const App = () => {
+  const [cartCount, setCartCount] = useState(0);
+
+  const getAndSetCartCount = async () => {
+    //const cartItems
+  };
+
   return (
     <NavigationContainer>
       <SafeAreaView style={styles.safeArea}>
@@ -74,6 +81,7 @@ const App = () => {
             component={Product}
           />
         </Stack.Navigator>
+        <CartInfo />
       </SafeAreaView>
     </NavigationContainer>
   );

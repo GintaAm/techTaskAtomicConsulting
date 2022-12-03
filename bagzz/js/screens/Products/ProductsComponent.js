@@ -54,7 +54,7 @@ export default ({loading, products, onProductPress}) => {
           key={item.id}
         />
         <Text style={style.productName}>{item.name}</Text>
-        <Text style>{`$${item.price}`}</Text>
+        <Text>{`$${item.price}`}</Text>
         <Button
           style={style.button}
           onProductPress={() => onProductPress(item.id)}
