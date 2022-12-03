@@ -41,3 +41,11 @@ export const getProduct = async productId =>
       },
     },
   );
+
+export const getCart = async () =>
+  request('https://virtserver.swaggerhub.com/I425/ReactJS/1.0.0/cart', {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });

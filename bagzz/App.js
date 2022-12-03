@@ -10,6 +10,7 @@ import {
   Button,
 } from 'react-native';
 import CartInfo from './js/components/CartInfo';
+import {Alert} from 'react-native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 import {NavigationContainer} from '@react-navigation/native';
@@ -19,6 +20,7 @@ import {GestureHandlerRootView} from 'react-native-gesture-handler';
 
 import {createStackNavigator} from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import {getCart} from './apis/api';
 
 const Stack = createStackNavigator();
 export const CartContext = createContext();
@@ -34,9 +36,25 @@ const styles = StyleSheet.create({
 const App = () => {
   const [cartCount, setCartCount] = useState(0);
 
-  const getAndSetCartCount = async () => {
-    //const cartItems
-  };
+  useEffect(() => {
+    console.log(`#1670069237 "use" ${JSON.stringify('use')}`);
+    const getAndSetCartCount = async () => {
+      console.log(`#1670069264 "fun" ${JSON.stringify('fun')}`);
+      try {
+        console.log(`#1670069202 "set" ${JSON.stringify('set')}`);
+        const cartItems = await getCart();
+        console.log(`#1670069010 cartItems ${JSON.stringify(cartItems)}`);
+        setCartCount(
+          cartItems.reduce((total, {quantity}) => total + quantity, 0),
+        );
+      } catch (error) {
+        console.error(error);
+        Alert.alert(error.message);
+      }
+    };
+
+    getAndSetCartCount;
+  }, []);
 
   return (
     <NavigationContainer>
