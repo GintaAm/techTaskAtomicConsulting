@@ -31,24 +31,17 @@ const styles = StyleSheet.create({
   },
 });
 
-export default () => {
+export default ({cartCount}) => {
   return (
     <View style={styles.container}>
       <View style={styles.innerView}>
-        <PressableIcon
-          iconName="home"
-          // onPress={() => na)}
-        />
-        <PressableIcon
-          iconName="search"
-          // onPress={() => na)}
-        />
-        <PressableIcon
-          iconName="heart"
-          // onPress={() => na)}
-        />
+        <PressableIcon iconName="home" />
+        <PressableIcon iconName="search" />
+        <PressableIcon iconName="heart" />
         <PressableIcon
           iconName="cart"
+          isBadgeNeeded={true}
+          cartCount={cartCount}
           // onPress={() => na)}
         />
       </View>
