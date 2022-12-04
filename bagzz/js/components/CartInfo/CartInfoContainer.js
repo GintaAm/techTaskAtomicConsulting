@@ -1,4 +1,4 @@
-import React, {useContext, createContext} from 'react';
+import React, {useContext} from 'react';
 import {CartContext} from '../../../App';
 import CartInfoComponent from './CartInfoComponent';
 

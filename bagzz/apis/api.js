@@ -49,3 +49,12 @@ export const getCart = async () =>
       'Content-Type': 'application/json',
     },
   });
+
+export const postCart = async body =>
+  request('https://virtserver.swaggerhub.com/I425/ReactJS/1.0.0/cart', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(body),
+  });

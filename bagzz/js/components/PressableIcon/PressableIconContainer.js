@@ -6,7 +6,7 @@ export default ({onPress, iconName, isBadgeNeeded, cartCount}) => {
     <PressableIconComponent
       handleOnPress={onPress}
       iconName={iconName}
-      isBadgeNeeded={true}
+      isBadgeNeeded={isBadgeNeeded}
       cartCount={cartCount}
     />
   );

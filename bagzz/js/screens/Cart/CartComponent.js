@@ -2,36 +2,22 @@ import React from 'react';
 import {
   View,
   StyleSheet,
-  FlatList,
   Text,
   Image,
+  FlatList,
   ActivityIndicator,
-  TouchableOpacity,
 } from 'react-native';
-
 import BuyButton from '../../components/BuyButton';
 
 const style = StyleSheet.create({
-  container: {flex: 1, backgroundColor: 'white'},
-  flatList: {
-    marginHorizontal: -10,
-    paddingHorizontal: 10,
-  },
-  flatListItemContainer: {
+  container: {
     flex: 1,
-    backgroundColor: '#DDDDDD',
-    marginVertical: 5,
-    marginHorizontal: 7,
+    backgroundColor: 'white',
+    alignItems: 'center',
   },
-  touchableContainer: {alignItems: 'center', flex: 1},
-  columnWrapperStyle: {
-    justifyContent: 'space-between',
-  },
-  image: {height: 100, width: '60%', marginVertical: 10},
-  productName: {fontSize: 20, fontWeight: '700', marginVertical: 20},
 });
 
-export default ({loading, products, onProductPress}) => {
+export default ({loading, cart, onProductPress}) => {
   if (loading) {
     return (
       <View style={style.container}>
@@ -69,7 +55,7 @@ export default ({loading, products, onProductPress}) => {
       <FlatList
         style={style.flatList}
         numColumns={2}
-        data={products}
+        data={cart}
         renderItem={renderItem}
         keyExtractor={item => item.id}
         columnWrapperStyle={style.columnWrapperStyle}

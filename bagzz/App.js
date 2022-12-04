@@ -6,6 +6,7 @@ import {Alert} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import Products from './js/screens/Products';
 import Product from './js/screens/Product';
+import Cart from './js/screens/Cart';
 
 import {createStackNavigator} from '@react-navigation/stack';
 
@@ -24,18 +25,14 @@ const styles = StyleSheet.create({
 
 const App = () => {
   const [cartCount, setCartCount] = useState(0);
-  const [cartCountLoading, setCartCountLoading] = useState(false);
 
   const getAndSetCartCount = async () => {
     try {
-      setCartCountLoading(true);
       const cartItems = await getCart();
       setCartCount(
         cartItems.reduce((total, {quantity}) => total + quantity, 0),
       );
-      setCartCountLoading(false);
     } catch (error) {
-      setCartCountLoading(false);
       console.error(error);
       Alert.alert(error.message);
     }
@@ -78,6 +75,13 @@ const App = () => {
               headerBackTitleVisible: false,
               headerTintColor: '#000000',
             })}>
+            <Stack.Screen
+              name="Cart"
+              options={() => ({
+                title: 'Cart',
+              })}
+              component={Cart}
+            />
             <Stack.Screen
               name="Products"
               options={() => ({

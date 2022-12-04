@@ -7,6 +7,8 @@ const styles = StyleSheet.create({
   icon: {
     marginVertical: 20,
   },
+  badgeContainerStyle: {position: 'absolute', top: 10, left: 15},
+  badgeStyle: {backgroundColor: 'black'},
 });
 
 export default ({handleOnPress, iconName, isBadgeNeeded, cartCount}) => {
@@ -23,10 +25,13 @@ export default ({handleOnPress, iconName, isBadgeNeeded, cartCount}) => {
       {() => (
         <View>
           <Icon name={iconName} size={25} color="black" style={styles.icon} />
-          <Badge
-            value={cartCount}
-            containerStyle={{position: 'absolute', top: 0, left: 0}}
-          />
+          {isBadgeNeeded && (
+            <Badge
+              value={cartCount}
+              containerStyle={styles.badgeContainerStyle}
+              badgeStyle={styles.badgeStyle}
+            />
+          )}
         </View>
       )}
     </Pressable>

@@ -1,13 +1,6 @@
 import React from 'react';
-import {
-  View,
-  StyleSheet,
-  FlatList,
-  Text,
-  Image,
-  ActivityIndicator,
-  Button,
-} from 'react-native';
+import {View, StyleSheet, Text, Image, ActivityIndicator} from 'react-native';
+import BuyButton from '../../components/BuyButton';
 
 const style = StyleSheet.create({
   container: {
@@ -49,6 +42,7 @@ export default ({loading, product}) => {
       <Text style={style.productName}>{product.name}</Text>
       <Text>{`$${product.price}`}</Text>
       <Text style={style.productDescription}>{product.description}</Text>
+      <BuyButton productId={product.id} />
     </View>
   );
 };

@@ -1,15 +1,6 @@
 import React from 'react';
 
-import {
-  SafeAreaView,
-  Platform,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  View,
-  Button,
-} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import PressableIcon from '../PressableIcon';
 
 const styles = StyleSheet.create({
