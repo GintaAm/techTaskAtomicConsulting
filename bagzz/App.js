@@ -76,13 +76,6 @@ const App = () => {
               headerTintColor: '#000000',
             })}>
             <Stack.Screen
-              name="Cart"
-              options={() => ({
-                title: 'Cart',
-              })}
-              component={Cart}
-            />
-            <Stack.Screen
               name="Products"
               options={() => ({
                 title: 'Bagzz',
@@ -95,6 +88,13 @@ const App = () => {
                 title: 'Bag',
               })}
               component={Product}
+            />
+            <Stack.Screen
+              name="Cart"
+              options={() => ({
+                title: 'Cart',
+              })}
+              component={Cart}
             />
           </Stack.Navigator>
           <CartInfo />

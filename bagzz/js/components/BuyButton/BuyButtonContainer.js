@@ -9,7 +9,7 @@ export default ({productId}) => {
   const handleBuyPress = useCallback(
     async prodId => {
       try {
-        const result = await postCart(prodId, 1);
+        const result = await postCart({id: prodId, quantity: 1});
         if (result?.ok) {
           Alert.alert('Successfully added to cart');
         }

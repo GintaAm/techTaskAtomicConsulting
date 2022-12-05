@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ({cartCount}) => {
+export default ({cartCount, onCartPress}) => {
   return (
     <View style={styles.container}>
       <View style={styles.innerView}>
@@ -33,7 +33,7 @@ export default ({cartCount}) => {
           iconName="cart"
           isBadgeNeeded={true}
           cartCount={cartCount}
-          // onPress={() => na)}
+          onPress={onCartPress}
         />
       </View>
     </View>

@@ -51,10 +51,34 @@ export const getCart = async () =>
   });
 
 export const postCart = async body =>
-  request('https://virtserver.swaggerhub.com/I425/ReactJS/1.0.0/cart', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
+  request(
+    `https://virtserver.swaggerhub.com/I425/ReactJS/1.0.0/cart?id=${body.id}&quantity=${body.quantity}`,
+    {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
     },
-    body: JSON.stringify(body),
-  });
+  );
+
+export const updateCartItem = async (productId, quantity) =>
+  request(
+    `https://virtserver.swaggerhub.com/I425/ReactJS/1.0.0/cart/${productId}?quantity=${quantity}`,
+    {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    },
+  );
+
+export const deleteCartItem = async productId =>
+  request(
+    `https://virtserver.swaggerhub.com/I425/ReactJS/1.0.0/cart/${productId}`,
+    {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    },
+  );
